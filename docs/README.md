@@ -17,6 +17,10 @@ sudo docker rm apprtc
 
 sudo docker run --rm  -p 8080:8080 -p 8089:8089 -p 3478:3478 -p 3478:3478/udp -p 3033:3033  --expose=59000-65000 -e PUBLIC_IP=<server public IP> -t -i piasy/apprtc-server
 
+139.59.6.242
+xvido365.com
+randomcalling
+
 sudo docker pull piasy/apprtc-server
 sudo docker run --rm \
   -p 8080:8080 -p 8089:8089 -p 3478:3478 -p 3478:3478/udp -p 3033:3033 \
