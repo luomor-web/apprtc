@@ -1,0 +1,28 @@
+sudo docker build -t yiluxiangbei/apprtc:v1 -f docker/Dockerfile .
+[+] Building 1.7s (21/21) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                     0.0s
+ => => transferring dockerfile: 4.65kB                                                                                                                   0.0s
+ => [internal] load .dockerignore                                                                                                                        0.0s
+ => => transferring context: 2B                                                                                                                          0.0s
+ => [internal] load metadata for docker.io/library/golang:1.17.5-alpine3.15                                                                              1.6s
+ => [ 1/17] FROM docker.io/library/golang:1.17.5-alpine3.15@sha256:4918412049183afe42f1ecaf8f5c2a88917c2eab153ce5ecf4bf2d55c1507b74                      0.0s
+ => CACHED [ 2/17] RUN apk add --no-cache git curl python2 build-base openssl-dev openssl                                                                0.0s
+ => CACHED [ 3/17] RUN git clone https://github.com/webrtc/apprtc.git                                                                                    0.0s
+ => CACHED [ 4/17] RUN curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-367.0.0-linux-x86_64.tar.gz --output gcloud.tar  0.0s
+ => CACHED [ 5/17] RUN python apprtc/build/build_app_engine_package.py apprtc/src/ apprtc/out/     && curl https://webrtc.github.io/adapter/adapter-lat  0.0s
+ => CACHED [ 6/17] RUN echo -e "#!/bin/sh\n" > /go/start.sh     && echo -e "`pwd`/google-cloud-sdk/bin/dev_appserver.py --host 0.0.0.0 `pwd`/apprtc/out  0.0s
+ => CACHED [ 7/17] RUN export GOPATH=$HOME/goWorkspace/     && go env -w GO111MODULE=off                                                                 0.0s
+ => CACHED [ 8/17] RUN ln -s `pwd`/apprtc/src/collider/collidermain /go/src     && ln -s `pwd`/apprtc/src/collider/collidertest /go/src     && ln -s `p  0.0s
+ => CACHED [ 9/17] RUN echo -e "/go/bin/collidermain -port=8089 -tls=true -room-server=http://localhost &\n" >> /go/start.sh                             0.0s
+ => CACHED [10/17] WORKDIR /usr/src                                                                                                                      0.0s
+ => CACHED [11/17] RUN curl  https://www.stunnel.org/archive/5.x/stunnel-5.60.tar.gz --output stunnel.tar.gz    && tar -xf /usr/src/stunnel.tar.gz       0.0s
+ => CACHED [12/17] WORKDIR /usr/src/stunnel-5.60                                                                                                         0.0s
+ => CACHED [13/17] RUN ./configure --prefix=/usr && make && make install                                                                                 0.0s
+ => CACHED [14/17] RUN mkdir /cert                                                                                                                       0.0s
+ => CACHED [15/17] RUN openssl req -x509 -out /cert/cert.crt -keyout /cert/key.pem   -newkey rsa:2048 -nodes -sha256   -subj '/CN=localhost' -extension  0.0s
+ => CACHED [16/17] RUN echo -e "foreground=yes\n" > /usr/etc/stunnel/stunnel.conf     && echo -e "[AppRTC GAE]\n" >> /usr/etc/stunnel/stunnel.conf       0.0s
+ => CACHED [17/17] RUN echo -e  "/usr/bin/stunnel &\n" >> /go/start.sh     && echo -e "wait -n\n" >> /go/start.sh     && echo -e "exit $?\n" >> /go/sta  0.0s
+ => exporting to image                                                                                                                                   0.0s
+ => => exporting layers                                                                                                                                  0.0s
+ => => writing image sha256:7dae023694ebfd3260819531aa36b1c230ac615269ef90670bb11ef9a9d49c64                                                             0.0s
+ => => naming to docker.io/yiluxiangbei/apprtc:v1
