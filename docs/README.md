@@ -36,6 +36,7 @@ https://xvido365.com/
 https://www.xvido365.com/
 
 sudo docker exec -it apprtc-web sh
+sudo docker exec -it apprtc-server bash
 
 sudo docker pull piasy/apprtc-server
 sudo docker run --rm \
