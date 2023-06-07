@@ -29,6 +29,6 @@ services:
       - "443:443"
       - "441:441"
     volumes:
-      - /etc/letsencrypt/live/xvido365.com:/cert
+      - /etc/letsencrypt/archive/xvido365.com:/cert
       - ./nginx-conf:/etc/nginx/conf.d
       - /etc/localtime:/etc/localtime
