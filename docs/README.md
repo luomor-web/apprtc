@@ -22,6 +22,8 @@ xvido365.com
 randomcalling
 
 apt install docker-compose
+sudo chown nginx:nginx /cert/cert.pem
+sudo chown nginx:nginx /cert/key.pem
 cd docker
 sudo docker-compose up -d
 sudo docker-compose down
