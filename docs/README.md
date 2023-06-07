@@ -32,8 +32,12 @@ sudo docker-compose up -d
 sudo docker-compose down
 sudo docker-compose logs -f
 
+sudo docker-compose logs -f apprtc-server
+
 sudo docker-compose stop apprtc-web
 sudo docker-compose start apprtc-web
+
+http://139.59.6.242:8080
 
 https://xvido365.com/
 https://www.xvido365.com/
