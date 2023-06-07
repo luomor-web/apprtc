@@ -2,7 +2,7 @@ version: '3'
 
 services:
   apprtc-server:
-    image: piasy/apprtc-server
+    image: yiluxiangbei/apprtc-server:v1
     container_name: apprtc-server
     restart: always
     env_file: .env
