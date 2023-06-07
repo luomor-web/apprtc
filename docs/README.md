@@ -29,6 +29,9 @@ sudo docker-compose up -d
 sudo docker-compose down
 sudo docker-compose logs -f
 
+sudo docker-compose stop apprtc-web
+sudo docker-compose start apprtc-web
+
 sudo docker exec -it apprtc-web sh
 
 sudo docker pull piasy/apprtc-server
