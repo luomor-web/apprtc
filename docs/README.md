@@ -32,7 +32,16 @@ sudo docker run --rm \
 sudo docker run --rm \
   -p 8080:8080 -p 8089:8089 -p 3478:3478 -p 3478:3478/udp -p 3033:3033 \
   --expose=59000-65000 \
-  -e PUBLIC_IP=<server public IP> \
-  -v <path to constants.py>:/apprtc_configs \
+  -e PUBLIC_IP=139.59.6.242 \
+  -v /home/web/apprtc/docker/config:/apprtc_configs \
   -t -i piasy/apprtc-server
+
+sudo docker run --rm \
+  -p 8080:8080 -p 8089:8089 -p 3478:3478 -p 3478:3478/udp -p 3033:3033 \
+  --expose=59000-65000 \
+  -e PUBLIC_IP=139.59.6.242 \
+  -v /home/web/apprtc/docker/config:/apprtc_configs \
+  -t -i piasy/apprtc-server
+
+/opt/app/bin/collidermain -port=443 -tls=true
 ```
