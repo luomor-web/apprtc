@@ -26,3 +26,13 @@ sudo docker build -t yiluxiangbei/apprtc:v1 -f docker/Dockerfile .
  => => exporting layers                                                                                                                                  0.0s
  => => writing image sha256:7dae023694ebfd3260819531aa36b1c230ac615269ef90670bb11ef9a9d49c64                                                             0.0s
  => => naming to docker.io/yiluxiangbei/apprtc:v1
+
+netstat -tlnp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.1:45811         0.0.0.0:*               LISTEN      16/python2
+tcp        0      0 127.0.0.1:20087         0.0.0.0:*               LISTEN      23/python2
+tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      8/stunnel
+tcp        0      0 127.0.0.1:8000          0.0.0.0:*               LISTEN      16/python2
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      16/python2
+tcp        0      0 :::8089                 :::*                    LISTEN      7/collidermain
