@@ -24,6 +24,8 @@ randomcalling
 apt install docker-compose
 cd docker
 sudo docker-compose up -d
+sudo docker-compose down
+sudo docker-compose logs -f
 
 sudo docker pull piasy/apprtc-server
 sudo docker run --rm \
