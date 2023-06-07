@@ -27,6 +27,8 @@ sudo docker-compose up -d
 sudo docker-compose down
 sudo docker-compose logs -f
 
+sudo docker exec -it apprtc-web sh
+
 sudo docker pull piasy/apprtc-server
 sudo docker run --rm \
   -p 8080:8080 -p 8089:8089 -p 3478:3478 -p 3478:3478/udp -p 3033:3033 \
