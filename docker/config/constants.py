@@ -37,8 +37,8 @@ ICE_SERVER_OVERRIDE = None
 #   }
 # ]
 
-ICE_SERVER_BASE_URL = 'http://139.59.6.242:3033'
-ICE_SERVER_URL_TEMPLATE = '%s/iceconfig?key=%s'
+ICE_SERVER_BASE_URL = 'https://xvido365.com'
+ICE_SERVER_URL_TEMPLATE = '%s/randomcalling?key=%s'
 ICE_SERVER_API_KEY = os.environ.get('ICE_SERVER_API_KEY')
 
 # Dictionary keys in the collider instance info constant.
