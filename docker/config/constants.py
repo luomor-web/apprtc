@@ -7,10 +7,10 @@ import os
 
 # Deprecated domains which we should to redirect to REDIRECT_URL.
 REDIRECT_DOMAINS =  [
-  'www.xvido365.com'
+  'xvido365.com'
 ]
 # URL which we should redirect to if matching in REDIRECT_DOMAINS.
-REDIRECT_URL = 'https://www.xvido365.com'
+REDIRECT_URL = 'https://xvido365.com'
 
 ROOM_MEMCACHE_EXPIRATION_SEC = 60 * 60 * 24
 MEMCACHE_RETRY_LIMIT = 100
