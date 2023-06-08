@@ -44,3 +44,20 @@ Version:
 time:       Fri Mar 9 17:06:42 2018 +0100
 branch:     master
 gitHash:    20cdd7652d58c9cf47ef92ba0190a5505760dc05
+
+cat /etc/turnserver.conf
+listening-port=3478
+min-port=59000
+max-port=65000
+fingerprint
+lt-cred-mech
+use-auth-secret
+static-auth-secret=4080218913
+realm=apprtc
+stale-nonce
+no-loopback-peers
+no-multicast-peers
+mobility
+no-cli
+no-tlsv1
+no-tlsv1_1
