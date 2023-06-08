@@ -16,6 +16,9 @@ services:
       - "59000-65000"
     volumes:
       - ./config:/apprtc_configs
+      - ./log/collider.log:/collider.log
+      - ./log/iceconfig.log:/iceconfig.log
+      - ./log/room_server.log:/room_server.log
       - /etc/localtime:/etc/localtime
 
   apprtc-web:
