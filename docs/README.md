@@ -3,7 +3,9 @@ sudo docker build -t yiluxiangbei/apprtc:v1 -f docker/Dockerfile .
 sudo docker push yiluxiangbei/apprtc:v1
 
 sudo docker build -t yiluxiangbei/apprtc-server:v1 -f docker/Dockerfile .
+sudo docker build -t yiluxiangbei/apprtc-server:v2 -f docker/Dockerfile .
 sudo docker push yiluxiangbei/apprtc-server:v1
+sudo docker push yiluxiangbei/apprtc-server:v2
 
 sudo docker login --username yiluxiangbei
 sudo docker logout
